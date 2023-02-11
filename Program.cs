@@ -1,3 +1,4 @@
+#define DEBUG
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 

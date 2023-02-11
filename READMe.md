@@ -25,6 +25,37 @@ dotnet ef database update
 
 - See below in the Getting Started section for steps on installing the .NET Entity Framework tools.
 
+### Configure Development Secrets
+
+https://learn.microsoft.com/en-us/aspnet/core/security/key-vault-configuration?view=aspnetcore-6.0
+
+We will be using Microsoft's Azure Key Vault for configuration of secrets in deployment. Configure the development environment using the Dotnet Secret Manager tool.
+
+#### Add User Secrets to the Project
+
+https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&tabs=linux
+
+```
+dotnet user-secrets init
+```
+
+- Adds the `UserSecretsId` element within a `PropertyGroup` of the project file and assigns a unique GUID to the project.
+- User secrets are stored in plaintext in the user's home directory organized by the GUID.
+
+```sh
+# Windows
+%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
+
+# Linux / MacOS
+~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
+```
+
+You can add and remove secrets one at a time or replace the values in `secrets.json` in the root of the project directory and pipe the output to the set command of the user-secrets tool.
+
+```
+cat secrets.json | dotnet user-secrets set
+```
+
 ## Getting Started
 
 https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0

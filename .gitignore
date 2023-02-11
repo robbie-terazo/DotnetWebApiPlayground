@@ -2,5 +2,11 @@
 bin
 obj
 
+# ide
+.vscode
+
 # os
 .DS_Store
+
+# env secrets
+secrets.json
