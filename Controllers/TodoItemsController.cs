@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MvcApplication1.ActionFilters;
 using TodoApi.Models;
 
 namespace DotnetWebApiPlayground.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [LogActionFilter]
     public class TodoItemsController : ControllerBase
     {
         private readonly TodoContext _context;
